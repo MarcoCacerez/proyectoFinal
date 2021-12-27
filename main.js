@@ -45,4 +45,7 @@ deleteUserButton.addEventListener('click',()=>{
 updateUserButton.addEventListener('click',()=>{
     userFormDiv.classList.remove('visually-hidden');
     nameInput.value = localStorage.getItem('name');
+    lastNameInput.value = localStorage.getItem('lastName');
+    userNameInput.value = localStorage.getItem('userName')
+    emailInput.value = localStorage.getItem('email');
 });
