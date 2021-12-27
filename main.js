@@ -1,3 +1,12 @@
+//Declaracion de variables
+let userNameSpan = document.querySelector('#userNameSpan');
+let userFormDiv = document.querySelector('#userFormDiv');
+let userInfoDiv = document.querySelector('#userInfoDiv');
+let nameInput = document.querySelector('#nameInput');
+let lastNameInput = document.querySelector('#lastNameInput');
+let userNameInput = document.querySelector('#userNameInput');
+let emailInput = document.querySelector('#emailInput');
+
 if(localStorage.getItem('userName') != null){
     userNameSpan.textContent = 'USUARIO '+localStorage.getItem('userName');
     userNameSpan.classList.add('mark');
@@ -8,6 +17,11 @@ if(localStorage.getItem('userName') != null){
 }
 
 function showUserInfo() {
+    let nameP = document.querySelector('#nameP');
+    let lastNameP = document.querySelector('#lastNameP');
+    let userNameP = document.querySelector('#userNameP');
+    let emailP = document.querySelector('#emailP');
+
     nameP.textContent = localStorage.getItem('name');
     lastNameP.textContent = localStorage.getItem('lastName');
     userNameP.textContent = localStorage.getItem('userName');
