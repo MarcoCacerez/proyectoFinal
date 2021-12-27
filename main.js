@@ -6,6 +6,7 @@ let nameInput = document.querySelector('#nameInput');
 let lastNameInput = document.querySelector('#lastNameInput');
 let userNameInput = document.querySelector('#userNameInput');
 let emailInput = document.querySelector('#emailInput');
+let cancelButton = document.querySelector('#cancelButton');
 
 if(localStorage.getItem('userName') != null){
     userNameSpan.textContent = 'USUARIO '+localStorage.getItem('userName');
@@ -44,8 +45,14 @@ deleteUserButton.addEventListener('click',()=>{
 
 updateUserButton.addEventListener('click',()=>{
     userFormDiv.classList.remove('visually-hidden');
+    cancelButton.classList.remove('visually-hidden');
     nameInput.value = localStorage.getItem('name');
     lastNameInput.value = localStorage.getItem('lastName');
     userNameInput.value = localStorage.getItem('userName')
     emailInput.value = localStorage.getItem('email');
+});
+
+cancelButton.addEventListener('click',()=>{
+    userFormDiv.classList.add('visually-hidden');
+    cancelButton.classList.add('visually-hidden');
 });
