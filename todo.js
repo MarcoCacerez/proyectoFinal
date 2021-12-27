@@ -1,5 +1,12 @@
+//Declaracion de variables
 let tasks = [];
-
+let userNameSpan = document.querySelector('#userNameSpan');
+let taskNameInput = document.querySelector('#taskNameInput');
+let taskStartInput = document.querySelector('#taskStartInput');
+let taskFinishInput = document.querySelector('#taskFinishInput');
+let taskPrioInput = document.querySelector('#taskPrioInput');
+let tasksDiv = document.querySelector('#tasksDiv');
+//codigo
 addTaskButton.addEventListener('click',()=>{
     let name = taskNameInput.value;
     let startDate = taskStartInput.value;
@@ -19,15 +26,18 @@ if(localStorage.getItem('userName') != null){
 if(localStorage.getItem('tasks') != null){
     tasks = JSON.parse(localStorage.getItem('tasks'));
     showTasks(tasks);
+}else{
+    tasks = []
+    showTasks(tasks);
 }
 
 
 function showTasks(tasks) {
+    tasksDiv.textContent = '';
     if(tasks.length == 0){
         tasksDiv.textContent = 'No hay tareas';
         return;
     }
-    tasksDiv.textContent = '';
     let mainUl = document.createElement('ul');
     mainUl.classList.add('list-group');
     tasks.forEach((item, i) => {
@@ -42,6 +52,7 @@ function showTasks(tasks) {
                         <li class="list-group-item">Fecha de termino: ${item._finishDate}</li>
                         <li class="list-group-item"> Prioridad: ${item._priority}</li>
                         <button type="submit" class="btn btn-danger" onclick="deleteTask(${i})">Eliminar</button>
+                        <a class="btn btn-primary" href="updateTask.html?id=${i}">Modificar</a>
                         `;
         li.appendChild(ul);
         mainUl.appendChild(li);
@@ -51,11 +62,11 @@ function showTasks(tasks) {
 
 function saveTask(task) {
     if(tasks.length == 0){
-        let items = [];
-        items[0] = task;
-        localStorage.setItem('tasks',JSON.stringify(items));
+        tasks = [];
+        tasks[0] = task;
+        localStorage.setItem('tasks',JSON.stringify(tasks));
     }else{
-        let tasks = JSON.parse(localStorage.getItem('tasks'));
+        tasks = JSON.parse(localStorage.getItem('tasks'));
         tasks.push(task);
         localStorage.setItem('tasks',JSON.stringify(tasks));
     }
