@@ -31,5 +31,5 @@ try{
         localStorage.setItem('tasks',JSON.stringify(tasks));
     });
 }catch(e){
-    location.href = './todo.html';
+    location.href = '../todo.html';
 }
