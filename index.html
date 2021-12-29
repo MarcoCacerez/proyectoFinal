@@ -24,15 +24,29 @@
             <form class="row g-3">
                 <div class="col-md-6">
                     <label class="form-label" for="nameInput">Nombre</label>
-                    <input type="text" class="form-control" id="nameInput" required>
+                    <input type="text" class="form-control" id="nameInput" pattern="[A-Za-z\u00C0-\u00FF\s]{3,}">
                 </div>
                 <div class="col-md-6">
                     <label class="form-label" for="lastNameInput">Apellido</label>
-                    <input type="text" class="form-control" id="lastNameInput" required>
+                    <input type="text" class="form-control" id="lastNameInput" pattern="[A-Za-z\u00C0-\u00FF\s]{3,}">
                 </div>
                 <div class="col-md-6">
                     <label for="userNameInput" class="form-label">Nombre de usuario</label>
                     <input type="text" class="form-control" pattern="^(?=[a-zA-Z0-9._]{8,20}$)(?!.*[_.]{2})[^_.].*[^_.]$" id="userNameInput">
+                    <div class="form-text  text-white">
+                        El nombre de usuario puede contener:
+                        <ul>
+                            <li>caracteres alfanumericos</li>
+                            <li>Guión bajo</li>
+                            <li>puntos</li>
+                        </ul>
+                        El guion bajo no debe 
+                        <ul>
+                            <li>estar al inicio y/o final del nombre de usuario</li>
+                            <li>El guion bajo o punto no se puede usar dos veces seguidas</li>
+                            <li>La longitud debe estar entre 8 a 20 caracteres</li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="col-md-6">
                     <label for="emailInput" class="form-label">Email</label>
