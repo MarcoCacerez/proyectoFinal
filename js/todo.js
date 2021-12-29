@@ -51,7 +51,7 @@ function showTasks(tasks) {
         ul.innerHTML = `<li class="list-group-item"> Fecha de inicio: ${item._startDate}</li>
                         <li class="list-group-item">Fecha de termino: ${item._finishDate}</li>
                         <li class="list-group-item"> Prioridad: ${item._priority}</li>
-                        <button type="submit" class="btn btn-danger" onclick="deleteTask(${i})">Eliminar</button>
+                        <button type="submit" class="btn btn-danger me-3 ms-3" onclick="deleteTask(${i})">Eliminar</button>
                         <a class="btn btn-primary" href="updateTask.html?id=${i}">Modificar</a>
                         `;
         li.appendChild(ul);
