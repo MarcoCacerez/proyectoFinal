@@ -1,6 +1,8 @@
 //Declaracion de variables
 let apiDiv = document.querySelector('#apiDiv');
 let userNameSpan = document.querySelector('#userNameSpan');
+let btnClose = document.querySelector("button[aria-label='Close']");
+let divAlert = document.querySelector("div[role='alert']");
 //Codigo
 if(localStorage.getItem('userName') != null){
     userNameSpan.textContent = 'USUARIO '+localStorage.getItem('userName');
@@ -16,10 +18,16 @@ function getActivity() {
         let url = `http://www.boredapi.com/api/activity?participants=${num}`;
         fetch(url).then(response => response.json()).then(data => showActivity(data));
     }else{
-        alert('No has ingresado un dato valido');
+        //alert('No has ingresado un dato valido');
+        divAlert.classList.remove("visually-hidden");
     }
     
 }
+
+btnClose.addEventListener('click',()=>{
+    divAlert.classList.add("visually-hidden");
+});
+
 function showActivity({activity,type,price,accessibility}) {
     
     apiDiv.innerHTML += `<div class="card text-dark col-md-4 mx-auto mb-3" style="width: 18rem;">
