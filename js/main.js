@@ -1,3 +1,6 @@
+/**
+ * Marco Aldair de Jesus Caceres 18390579 ISC I7U
+ */
 //Declaracion de variables
 let userNameSpan = document.querySelector('#userNameSpan');
 let userFormDiv = document.querySelector('#userFormDiv');

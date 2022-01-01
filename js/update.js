@@ -1,3 +1,6 @@
+/**
+ * Marco Aldair de Jesus Caceres 18390579 ISC I7U
+ */
 function getId() {
     let url = new URLSearchParams(window.location.search);
     let id = url.get('id');
